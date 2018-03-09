@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>AndrewHw</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <%= render 'shared/nav' %>
+
+    <%= js add_gritter(flash[:notice], :title => "Notice!", :sticky => false, :time => 1000) %>
+    <%= js add_gritter(flash[:alert], :title => "Alert!", :sticky => false, :time => 1000) %>
+    <%= js add_gritter(flash[:error], :title => "Error!", :sticky => false, :time => 1000) %>
+
+    <%= yield %>
+  </body>
+</html>

@@ -1,0 +1,26 @@
+<%= form_with(model: blog, local: true) do |form| %>
+  <% if blog.errors.any? %>
+    <% blog.errors.full_messages.each do |error| %>
+      <%= js add_gritter(error, title: "Error", sticky: false) %>
+    <% end %>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :title %>
+    <%= form.text_field :title, id: :blog_title %>
+  </div>
+
+  <div class="field">
+    <%= form.label :subtitle %>
+    <%= form.text_field :subtitle, id: :blog_subtitle %>
+  </div>
+
+  <div class="field">
+    <%= form.label :body %>
+    <%= form.text_area :body, id: :blog_body %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit "Submit", class: "waves-effect waves-light btn" %>
+  </div>
+<% end %>

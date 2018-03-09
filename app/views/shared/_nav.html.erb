@@ -1,0 +1,15 @@
+  <nav>
+    <div class="nav-wrapper cyan darken-1">
+      <a href="#" class="brand-logo">Logo</a>
+      <ul id="nav-mobile" class="right hide-on-med-and-down">
+        <li><%= link_to "Home", root_path %></li>
+        <li><%= link_to "Blogs", blogs_path %></li>
+        <% if current_user %>
+          <li><%= link_to "Logout", destroy_user_session_path, method: :delete %></li>
+        <% else %>
+          <li><%= link_to "Register", new_user_registration_path %></li>
+          <li><%= link_to "Sign In", new_user_session_path %></li>
+        <% end %>
+      </ul>
+    </div>
+  </nav>

@@ -1,0 +1,31 @@
+<div class="container">
+  <h1>Blogs</h1>
+
+  <table class="highlight">
+    <thead>
+      <tr>
+        <th>Title</th>
+        <th>Subtitle</th>
+        <th>Body</th>
+        <th colspan="3"></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @blogs.each do |blog| %>
+      <tr>
+        <td><%= blog.title %></td>
+        <td><%= blog.subtitle %></td>
+        <td><%= blog.body %></td>
+        <td><%= link_to '<i class="material-icons">pageview</i>'.html_safe, blog, class: 'index-icons' %></td>
+        <td><%= link_to '<i class="material-icons">edit</i>'.html_safe, edit_blog_path(blog), class: 'index-icons' %></td>
+        <td><%= link_to '<i class="material-icons">delete</i>'.html_safe, blog, method: :delete, data: { confirm: 'Are you sure?' }, class: 'index-icons' %></td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+  <br>
+
+  <%= link_to 'New Blog', new_blog_path, class: "waves-effect waves-light btn" %>
+</div>
